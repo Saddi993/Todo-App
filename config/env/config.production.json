@@ -1,0 +1,18 @@
+{
+    "environment": "development",
+    "hostname": "http://localhost:3000",
+    "server": {
+        "api": {
+            "name": "Sample, App",
+            "host": "localhost",
+            "port": 3000
+        },
+        "database": {
+            "host": "localhost",
+            "port": 27017,
+            "name": "todo-app",
+            "username": "admin",
+            "password": "admin"
+        }
+    }
+}
