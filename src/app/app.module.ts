@@ -7,7 +7,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule, MatButtonModule, MatInputModule } from '@angular/material';
 
 
@@ -23,7 +22,6 @@ import { MatCardModule, MatButtonModule, MatInputModule } from '@angular/materia
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule,
     MatCardModule,
     MatButtonModule,
     MatInputModule
