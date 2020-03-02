@@ -42,7 +42,6 @@ app.route('/').get((req, res, next) => {
 });
 
 const close = exitParam => {
-	// cache.Redis.close();
 	db.connection.close(() => {
 		exitParam ?
 			log(chalk.hex('#FFFFFF').bgHex('#D91E18').bold('[\u2a2f] Could not close connections in time, forcefully shutting down. ')) :

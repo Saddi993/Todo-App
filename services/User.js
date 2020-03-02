@@ -1,6 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
+const db = require('../db');
 
 class User {
 
@@ -12,8 +13,18 @@ class User {
      * @memberOf Users
      */
 	static async getOne(username, password) {
-		uid = parseInt(uid);
-		return await models.users.findOne({ username, password });
+		return await db.models.users.findOne({ username, password });
+	}
+
+	/**
+     * Create User
+     * @description Create User
+     * @static
+     * @param {Object} user - User Object
+     * @memberOf Users
+     */
+	static async register(user) {
+		return await db.models.users(user).save();
 	}
 }
 

@@ -13,4 +13,10 @@ module.exports = {
 		if (!_.isNull(d)) response.data = d;
 		return [200, response];
 	},
+	errors: e => {
+		let response = [500, null];
+		const errorBody = { meta: { code: 500, message: e.message } };
+		response = [500, errorBody];
+		return response;
+	}
 };

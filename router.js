@@ -3,5 +3,6 @@
 const { UserEndpoint } = require('./endpoints');
 
 module.exports = app => {
-	app.get('/login', UserEndpoint.Login);
+	app.post('/register', UserEndpoint.register);
+	app.post('/login', UserEndpoint.login);
 };
