@@ -13,12 +13,12 @@ export class TodoRestService {
     return this.backend.get(`/tasks`);
   }
 
-  createTask() {
-    return this.backend.post(`/tasks`, {});
+  createTask(task: any) {
+    return this.backend.post(`/task`, task);
   }
 
   updateTask(id: any) {
-    return this.backend.put(`/tasks/${id}`, {});
+    return this.backend.put(`/task/${id}`, {});
   }
 
   login(user: any) {

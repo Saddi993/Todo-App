@@ -7,7 +7,7 @@ module.exports = app => {
 	app.post('/login', 		UserEndpoint.login);
 
 	app.post('/task', 		TodoEndpoint.add);
-	app.get('/task', 		TodoEndpoint.getAll);
+	app.get('/tasks', 		TodoEndpoint.getAll);
 	app.put('/task/:id', 	TodoEndpoint.markDone);
 
 };
