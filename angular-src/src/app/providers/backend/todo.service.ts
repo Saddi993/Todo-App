@@ -20,4 +20,8 @@ export class TodoRestService {
   updateTask(id: any) {
     return this.backend.put(`/tasks/${id}`, {});
   }
+
+  login(user: any) {
+    return this.backend.post(`/login`, user);
+  }
 }
