@@ -28,6 +28,20 @@ class Todo {
 		const tasks = await db.models.tasks.findAll();
 		return _.head(tasks).toJSON();
 	}
+
+	/**
+	   * Complete Tasks
+	   * @description Complete tasks
+	   * @static
+	   * @memberOf Tasks
+	   */
+	static async comepleteTask(_id) {
+		const task = await db.models.tasks.findOne({ _id });
+		if (!task) return false;
+
+		await task.update(user);
+		return true;
+	}
 }
 
 module.exports = Todo;
