@@ -12,9 +12,9 @@ class TodoEndpoint {
 	 */
 	static async add(req, res, next) {
 		try {
-			await Services.Todo.add(req.body.task);
+			const tasks = await Services.Todo.save(req.body.name);
 
-			const [status, body] = response.success();
+			const [status, body] = response.success(tasks);
 			res.status(status).send(body);
 		} catch (e) {
 			const [status, body] = response.errors(e);
@@ -28,9 +28,9 @@ class TodoEndpoint {
 	 */
 	static async getAll(req, res, next) {
 		try {
-			await Services.Todo.add(req.body.task);
+			const tasks = await Services.Todo.getTasks();
 
-			const [status, body] = response.success();
+			const [status, body] = response.success(tasks);
 			res.status(status).send(body);
 		} catch (e) {
 			const [status, body] = response.errors(e);
@@ -44,9 +44,9 @@ class TodoEndpoint {
 	 */
 	static async markDone(req, res, next) {
 		try {
-			await Services.Todo.add(req.body.task);
+			const task = await Services.Todo.comepleteTask(req.params.id);
 
-			const [status, body] = response.success();
+			const [status, body] = response.success(task);
 			res.status(status).send(body);
 		} catch (e) {
 			const [status, body] = response.errors(e);

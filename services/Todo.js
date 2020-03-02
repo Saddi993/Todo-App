@@ -13,8 +13,8 @@ class Todo {
      * @param {String} task - task string
      * @memberOf Task
      */
-	static async save(task) {
-		return await new db.models.tasks({ task }).save();
+	static async save(name) {
+		return await new db.models.tasks({ name }).save();
 	}
 
 
@@ -25,8 +25,7 @@ class Todo {
 	   * @memberOf Tasks
 	   */
 	static async getTasks() {
-		const tasks = await db.models.tasks.findAll();
-		return _.head(tasks).toJSON();
+		return await db.models.tasks.find();
 	}
 
 	/**
@@ -35,12 +34,13 @@ class Todo {
 	   * @static
 	   * @memberOf Tasks
 	   */
-	static async comepleteTask(_id) {
-		const task = await db.models.tasks.findOne({ _id });
+	static async comepleteTask(id) {
+		const task = await db.models.tasks.findOne({ _id: db.mongoose.Types.ObjectId(id) });
 		if (!task) return false;
 
-		await task.update(user);
-		return true;
+		task.status = "DONE";
+		await task.update(task);
+		return task;
 	}
 }
 
