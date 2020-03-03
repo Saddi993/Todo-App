@@ -30,7 +30,8 @@ app.use('/api', express.Router());
 
 require('./router')(app);
 
-const server = app.listen(config.get('server:api:port'), () => {
+const _PORT = process.env.PORT || config.get('server:api:port');
+const server = app.listen(_PORT, () => {
 	log(chalk.hex('#FFFFFF').bgHex('#3FC380').bold(`[\u2139] Environment : ${config.get('environment')} `));
 	log(chalk.hex('#FFFFFF').bgHex('#3FC380').bold(`[\u2713] Server Started ${config.get('hostname')} `));
 	db.connection.once('open', () => log(chalk.hex('#FFFFFF').bgHex('#1E8BC3').bold('[\u2713] MongoDB connected ')));
