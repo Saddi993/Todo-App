@@ -1,11 +1,11 @@
 {
-    "environment": "development",
-    "hostname": "http://localhost:3000",
+    "environment": "production",
+    "hostname": "https://cryptic-basin-09516.herokuapp.com",
     "server": {
         "api": {
             "name": "Sample, App",
-            "host": "localhost",
-            "port": 3000
+            "host": "cryptic-basin-09516.herokuapp",
+            "port": 8080
         },
         "database": {
             "host": "localhost",
