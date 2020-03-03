@@ -12,8 +12,10 @@ class DB {
         mongoose.Promise = global.Promise;
         mongoose.set('debug', config.get('environment') !== 'production');
 
+        // mongoose.connect(`mongodb://${config.get('server:database:username')}:${config.get('server:database:password')}@${config.get('server:database:host')}:${config.get('server:database:port')}/${config.get('server:database:name')}`);
+
         if (config.get('environment') === 'production')
-            mongoose.connect(`mongodb://${config.get('server:database:username')}:${config.get('server:database:password')}@${config.get('server:database:host')}:${config.get('server:database:port')}/${config.get('server:database:name')}`);
+            mongoose.connect(`mongodb + srv://${config.get('server:database:username')}:${config.get('server:database:password')}@cluster0-6tf1w.mongodb.net/test?retryWrites=true&w=majority`);
         else
             mongoose.connect(`mongodb://${config.get('server:database:host')}:${config.get('server:database:port')}/${config.get('server:database:name')}`);
 
