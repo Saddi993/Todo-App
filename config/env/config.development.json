@@ -10,7 +10,9 @@
         "database": {
             "host": "localhost",
             "port": 27017,
-            "name": "todoapp"
+            "name": "todoapp",
+            "username": "saadahmed",
+            "password": "saad@123"
         }
     }
 }
