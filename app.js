@@ -5,6 +5,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const chalk = require('chalk');
 const cors = require('cors');
+const path = require('path');
 
 const config = require('./config');
 const db = require('./db');
@@ -19,6 +20,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
+// Set Static Folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('*', (req, res, ) => {
+	res.sendFile(path.join(__dirname, 'public/index.html'));
+})
+
 app.use((req, res, next) => {
 	res.header('Access-Control-Allow-Origin', '*');
 	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -31,6 +39,7 @@ app.use('/api', express.Router());
 require('./router')(app);
 
 const _PORT = process.env.PORT || config.get('server:api:port');
+
 const server = app.listen(_PORT, () => {
 	log(chalk.hex('#FFFFFF').bgHex('#3FC380').bold(`[\u2139] Environment : ${config.get('environment')} `));
 	log(chalk.hex('#FFFFFF').bgHex('#3FC380').bold(`[\u2713] Server Started ${config.get('hostname')} `));
