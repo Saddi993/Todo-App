@@ -22,7 +22,7 @@ switch to angular-src directory then run below command to run this locally
 
 https://cryptic-basin-09516.herokuapp.com
 
-username: saad.ahmed
-password: 123456
+username: `saad.ahmed`
+password: `123456`
 
 
