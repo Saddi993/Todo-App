@@ -20,13 +20,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
-// Set Static Folder
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.get('*', (req, res, ) => {
-	res.sendFile(path.join(__dirname, 'public/index.html'));
-})
-
 app.use((req, res, next) => {
 	res.header('Access-Control-Allow-Origin', '*');
 	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -50,6 +43,13 @@ app.route('/').get((req, res, next) => {
 	res.status(200).json({});
 	return next();
 });
+
+// Set Static Folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('*', (req, res, ) => {
+	res.sendFile(path.join(__dirname, 'public/index.html'));
+})
 
 const close = exitParam => {
 	db.connection.close(() => {
