@@ -1,7 +1,7 @@
 # Todo-App
 MEAN Stack sample for demo
 
-Note: mondo db must be installed in your system.
+Note: mongo db must be installed in your system.
 
 
 ## Development Server
