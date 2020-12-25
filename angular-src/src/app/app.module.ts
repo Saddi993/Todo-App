@@ -9,13 +9,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule, MatButtonModule, MatInputModule, MatSnackBarModule, MatTableModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductListComponent } from './pages/product-list/product-list.component';
+import { ProductAddComponent } from './pages/product-add/product-add.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ProductListComponent,
+    ProductAddComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
