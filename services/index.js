@@ -2,5 +2,6 @@
 
 module.exports = {
 	Todo: require('./Todo'),
-	User: require('./User')
+	User: require('./User'),
+	Product: require('./Product')
 };

@@ -1,6 +1,6 @@
 'use strict';
 
-const { UserEndpoint, TodoEndpoint } = require('./endpoints');
+const { UserEndpoint, TodoEndpoint, ProductEndpoint } = require('./endpoints');
 
 module.exports = app => {
 	app.post('/register', 	UserEndpoint.register);
@@ -9,5 +9,7 @@ module.exports = app => {
 	app.post('/task', 		TodoEndpoint.add);
 	app.get('/tasks', 		TodoEndpoint.getAll);
 	app.put('/task/:id', 	TodoEndpoint.markDone);
+
+	app.get('/data/populate', 	ProductEndpoint.populateData);
 
 };

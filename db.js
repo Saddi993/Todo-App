@@ -11,8 +11,9 @@ class DB {
     static init() {
         mongoose.Promise = global.Promise;
         mongoose.set('debug', config.get('environment') !== 'production');
+        const conn = `mongodb+srv://${config.get('server:database:username')}:${config.get('server:database:password')}@cluster0-6tf1w.mongodb.net/test?retryWrites=true&w=majority`;
 
-        mongoose.connect(`mongodb+srv://${config.get('server:database:username')}:${config.get('server:database:password')}@cluster0-6tf1w.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true });
+        mongoose.connect(conn, { useNewUrlParser: true });
 
         // mongoose.connect(`mongodb://${config.get('server:database:username')}:${config.get('server:database:password')}@${config.get('server:database:host')}:${config.get('server:database:port')}/${config.get('server:database:name')}`);
 
