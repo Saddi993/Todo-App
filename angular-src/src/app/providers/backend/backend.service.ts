@@ -15,25 +15,25 @@ export class BackEndService {
   get(route, queryParam: any = {}, moreHeaderOptions = {}) {
     const headers = this.headers(moreHeaderOptions);
     const Params = this.QueryParamHelper(queryParam);
-    return this.http.get<Response>(`${route}`, { headers, params: Params });
+    return this.http.get<Response>(`${AppConfig.API_URL}${route}`, { headers, params: Params });
   }
 
   post(route, params, queryParam = {}, moreHeaderOptions = {}) {
     const headers = this.headers(moreHeaderOptions);
     const qParams = this.QueryParamHelper(queryParam);
-    return this.http.post<Response>(`${route}`, params, { headers, params: qParams });
+    return this.http.post<Response>(`${AppConfig.API_URL}${route}`, params, { headers, params: qParams });
   }
 
   put(route, params, queryParam = {}, moreHeaderOptions = {}) {
     const headers = this.headers(moreHeaderOptions);
     const qParams = this.QueryParamHelper(queryParam);
-    return this.http.put<Response>(`${route}`, params, { headers, params: qParams });
+    return this.http.put<Response>(`${AppConfig.API_URL}${route}`, params, { headers, params: qParams });
   }
 
   delete(route, queryParam = {}, moreHeaderOptions = {}) {
     const headers = this.headers(moreHeaderOptions);
     const qParams = this.QueryParamHelper(queryParam);
-    return this.http.delete<Response>(`${route}`, { headers, params: qParams });
+    return this.http.delete<Response>(`${AppConfig.API_URL}${route}`, { headers, params: qParams });
   }
 
   private headers(options = {}) {
