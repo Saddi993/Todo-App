@@ -28,7 +28,7 @@ class ProductEndpoint {
      */
     static async getAll(req, res, next) {
         try {
-            const products = await Services.Product.getProducts();
+            const products = await Services.Product.getProducts(req.query.offset, req.query.limit);
 
             const [status, body] = response.success(products);
             res.status(status).send(body);

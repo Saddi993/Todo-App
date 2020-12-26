@@ -26,8 +26,8 @@ class Product {
      * @static
      * @memberOf Product
      */
-    static async getProducts() {
-        return await db.models.products.find();
+    static async getProducts(skip = 0, limit = 10) {
+        return await db.models.products.find().skip(Number.parseInt(skip)).limit(Number.parseInt(limit));;
     }
 
     /**
